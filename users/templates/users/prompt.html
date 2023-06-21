@@ -1,0 +1,29 @@
+{% extends "users/base.html" %}
+{% block title %} Prompt Generator {% endblock title%}
+{% block content %}
+<div class="row justify-content-center my-4">
+    <div class="col-md-7 mt-4">
+        <div class="card">
+            <h1 class="card-header text-center">A.I WEB ASSISTANT</h1>
+            <div class="card-body">
+ 
+              <form action="." method="POST">
+                <!-- this secures the form from malicious attacks during submission -->
+                {% csrf_token %}
+                <label for="prompt" class="form-label">Prompt:</label>
+                <input class="form-control mb-2" required type="text" autofocus="autofocus" name="prompt" value="{{ prompt }}" id="prompt">
+                <label for="url_1" class="form-label">URL 1:</label>
+                <input class="form-control mb-2" required type="text" autofocus="autofocus" name="url_1" value="{{ url_1 }}" id="url_1">
+                <label for="url_2" class="form-label">URL 2:</label>
+                <input class="form-control mb-2" type="text" autofocus="autofocus" name="url_2" value="{{ url_2 }}" id="url_2">
+                <label for="url_3" class="form-label">URL 3:</label>
+                <input class="form-control mb-2" type="text" autofocus="autofocus" name="url_3" value="{{ url_3 }}" id="url_3">                
+                <button class="btn btn-success fw-bold" type="submit">
+                     GENERATE
+                </button>
+              </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

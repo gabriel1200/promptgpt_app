@@ -7,6 +7,19 @@ from django.views import View
 from django.contrib.auth.decorators import login_required
 
 from .forms import RegisterForm, LoginForm, UpdateUserForm, UpdateProfileForm
+from api_call import *
+def prompt(request):
+    if request.method == 'GET':
+        return render(request, 'users/prompt.html')
+    if request.method == 'POST':
+        prompt = request.POST.get('prompt')
+        url_1 = request.POST.get('url_1')
+        url_2 = request.POST.get('url_2')
+        url_3 = request.POST.get('url_3')
+        print(prompt)
+        print(url_1)
+        print(url_2)
+        print(url_3)
 
 
 def home(request):
